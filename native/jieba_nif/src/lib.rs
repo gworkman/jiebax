@@ -8,7 +8,7 @@ lazy_static! {
 
 #[rustler::nif]
 fn cut(sentence: &str) -> Vec<&str> {
-    let result = JIEBA.cut(sentence, false);
+    let result = JIEBA.cut(sentence, true);
     result
 }
 
@@ -20,13 +20,13 @@ fn cut_all(sentence: &str) -> Vec<&str> {
 
 #[rustler::nif]
 fn cut_for_search(sentence: &str) -> Vec<&str> {
-    let result = JIEBA.cut_for_search(sentence, false);
+    let result = JIEBA.cut_for_search(sentence, true);
     result
 }
 
 #[rustler::nif]
 fn tokenize(sentence: &str) -> Vec<(&str, usize, usize)> {
-    let vec = JIEBA.tokenize(sentence, TokenizeMode::Default, false);
+    let vec = JIEBA.tokenize(sentence, TokenizeMode::Default, true);
     let result = vec
         .iter()
         .map(|token| (token.word, token.start, token.end))
