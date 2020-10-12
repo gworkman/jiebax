@@ -1,0 +1,15 @@
+[package]
+name = "jieba_nif"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "jieba_nif"
+path = "src/lib.rs"
+crate-type = ["dylib"]
+
+[dependencies]
+rustler = "0.22.0-rc.0"
+jieba-rs = "0.6"
+lazy_static = "1.4.0"
